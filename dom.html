@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dom</title>
 </head>
-
 <body>
     <p>Youtube Subscribe Button</p>
     <button onclick="
@@ -22,7 +20,6 @@
     ">Calculate</button>
     <p class="js-total-cost"></p>
 
-
     <script>
 
         const no=Number('25'+ 5);
@@ -37,11 +34,9 @@
             const inputElement = document.querySelector('.js-cost-input');
             let cost= Number(inputElement.value);
            
-
             if(cost<40){
                 cost = cost+10;
             }
-
             document.querySelector('.js-total-cost').innerHTML =`$${cost}`
         }
 
@@ -53,9 +48,7 @@
             } else {
                 buttonElement.innerHTML = 'Subscribe';
             }
-
         }
     </script>
 </body>
-
 </html>
