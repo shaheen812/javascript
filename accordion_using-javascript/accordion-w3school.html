@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .container{
+            width: 100%;
+            height: 250px;
+            background: rgb(175, 173, 173);
+        }
+        /* p{
+            display: block;
+        } */
+    </style>
+    <title>accordion</title>
+</head>
+
+<body>
+    <div class="container">
+        <button class="sib1"> button 1</button>
+        <p> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam culpa nostrum illo et maiores veritatis
+            molestiae nobis accusamus cupiditate obcaecati dolore odio laboriosam sit rerum, ea, harum inventore
+            consectetur quod.</p>
+    </div>
+
+    <script>
+     const acc = document.getElementsByClassName("sib1");
+
+      for(let i=0;i<acc.length;i++){
+        acc[i].addEventListener("click", function(){
+            // this.classList.toggle("active");
+
+            const sib=this.nextElementSibling;
+            if(sib.style.display=="block"){
+                sib.style.display="none";
+            }else{
+                sib.style.display="block";
+            }
+        });
+      }
+     
+    </script>
+</body>
+
+</html>
