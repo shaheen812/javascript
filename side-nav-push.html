@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: "Lato", sans-serif;
+    }
+
+    .sidenav {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      background-color: #111;
+      overflow-x: hidden;
+      transition: 0.5s;
+      padding-top: 60px;
+    }
+
+    .sidenav a {
+      padding: 8px 8px 8px 32px;
+      text-decoration: none;
+      font-size: 25px;
+      color: #818181;
+      display: block;
+      transition: 0.3s;
+      display: flex;
+      align-items: center;
+    }
+
+    .sidenav a:hover {
+      color: #f1f1f1;
+    }
+
+    .sidenav .closebtn {
+      position: absolute;
+      top: 0;
+      right: 25px;
+      font-size: 36px;
+      margin-left: 50px;
+    }
+
+    #main {
+      transition: margin-left .5s;
+      padding: 16px;
+    }
+
+    .sidenav.active {
+      overflow-x: visible;
+      width: 250px;
+    }
+
+    .service-list {
+      display: none;
+      margin: 0px;
+      padding: 0px 0px;
+    }
+
+    .service-list li a {
+      color: #c1bdbd;
+    }
+
+    @media screen and (max-height: 450px) {
+      .sidenav {
+        padding-top: 15px;
+      }
+
+      .sidenav a {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="mySidenav" class="sidenav">
+    <ul>
+
+      <li><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a></li>
+      times;</a>
+      <li><a href="#">About</a></li>
+      <li class="nav-list"><a href="#">Services
+          <ion-icon name="chevron-down-outline"></ion-icon></a>
+        <ul class="service-list">
+          <li><a href="#">service1</a></li>
+          <li><a href="#">service2</a></li>
+          <li><a href="#">service3</a></li>
+        </ul>
+      </li>
+  
+      <li><a href="#">Clients</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </div>
+
+  <div id="main">
+    <h2>Sidenav Push Example</h2>
+    <p>Click on the element below to open the side navigation menu, and push this content to the right.</p>
+    <span id="openButton" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+  </div>
+
+  <script>
+    // function openNav() {
+    //   document.getElementById("mySidenav").style.width = "250px";
+    //   document.getElementById("main").style.marginLeft = "250px";
+    // }
+
+    // function closeNav() {
+    //   document.getElementById("mySidenav").style.width = "0";
+    //   document.getElementById("main").style.marginLeft= "0";
+    // }
+
+    const sideBar = document.querySelector(".sidenav");
+    const maincon = document.querySelector("#main");
+    const OpenButton = document.querySelector("#openButton");
+    function openNav() {
+
+      sideBar.classList.toggle("active")
+      if (sideBar.classList.contains("active")) {
+        maincon.style.marginLeft = "254px";
+        OpenButton.style.display = "none";
+
+      } else {
+        maincon.style.marginLeft = "0";
+        OpenButton.style.display = "block";
+      }
+    }
+
+    function closeNav() {
+      sideBar.classList.remove("active");
+      maincon.style.marginLeft = "0";
+      OpenButton.style.display = "block";
+    }
+
+
+//     const dropDownList = document.querySelectorAll('.nav-list');
+// dropDownList.forEach(function(navList) {
+//   navList.addEventListener("click", function () {
+//     const dropDownContent = this.nextElementSibling;
+//     if (dropDownContent.style.display === "block") {
+//       dropDownContent.style.display = "none";
+//     } else {
+//       dropDownContent.style.display = "block";
+//     }
+//   });
+// });
+
+
+const dropDownLink = document.querySelector('.nav-list a'); // Ensure you have only one nav-list for this query
+dropDownLink.addEventListener('click', function () {
+  const serviceList = this.nextElementSibling;
+  if (serviceList.style.display === 'block') {
+    serviceList.style.display = 'none';
+  } else {
+    serviceList.style.display = 'block';
+  }
+});
+
+  </script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>
